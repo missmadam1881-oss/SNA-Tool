@@ -3,23 +3,59 @@
 This project applies Social Network Analysis (SNA) and link-prediction techniques to social-network data.The analysis uses an edge-list representation of a social network.
 Each edge represents a connection between two users (nodes) in the social network.
 
-# Python Libraries and Modules Used
+# Installation
+This project files are stored in https://github.com/missmadam1881-oss/facebook-network-data-analysis
+A virtual environment (venv) was used in this project to keep all required Python packages isolated from the rest of the system.
 
+# Python Libraries and Modules Used
 pandas — data loading, manipulation and tabular analysis
 NumPy — numerical calculations and random seed control
 NetworkX — graph construction, Social Network Analysis, community detection and link prediction
 Matplotlib — network and community visualisation
 scikit-learn — machine-learning models, feature scaling and evaluation
-random — reproducible randomisation, edge splitting and negative samplin
-    
+random — reproducible randomisation, edge splitting and negative sampling
+
+# Structure
+The project structure is:
+├── notebooks/
+│   ├── 01_data_exploration.ipynb   
+│   ├── 02_link_prediction_evaluation.ipynb 
+│   └── 03_model_comparison_and_sna_tool.ipynb
+│
+├── facebook/                
+│   ├── 0.edges    # Main data for building and evaluation
+│   ├── 348.edges
+│   ├── 414.edges
+│   └── 3980.edges
+│
+├── twitter/               
+│   ├── 12831.edges
+│   ├── 25678.edges
+│   └── 745823.edges
+│
+└── meetigbos/              
+    └── communication.edges
+
+
 # Data
-Data was sourced from Stanford University publicly available Twitter and facebook data (detail in project references page)
+Data was sourced from Stanford University publicly available Twitter and facebook data (detail in project references page). The facebook data was used to design the Tool.
+Data from Twitter and MeetIgbos (the researcher’s own social website) was used to demonstrate the tool’s effectiveness and the dynamism of the tool
 The dataset can be changed through the DATASET_PATH parameter, allowing the same tool to be tested with other compatible edge-list datasets.
+
+The tool expects a compatible edge-list dataset.
+Each row represents a relationship between two users.
+For example:
+user_A    user_B   #Note that header should not be  included
+1         2
+1         5
+2         5
+
 
 The main analysis uses the Facebook 0.edges dataset.
 Additional datasets are available for testing the reusable SNA tool:
 Facebook 348.edges, 414.edges, 3980.edges
 Twitter 12831.edges,623623.edges, 745823.edges
+Meetigbos communication.edge
 
 
 Code files include
@@ -43,8 +79,6 @@ It also uses heuristic link prediction using Common Neighbours, Jaccard Coeffici
 •	Centrality Measures for the Ego Network
 •	Visualise communities with different colours (SciPy-free version)
 •	Link prediction using Common Neighbours, Jaccard Coefficient, and Adamic–Adar
-
-
 
 
 # 02 — Link Prediction Evaluation
